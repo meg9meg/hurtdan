@@ -43,7 +43,8 @@
     $array = json_decode($data, true); //konwertowanie jsona do tabeli php
     foreach($array as $row) //wyciaganie daych z tabeli i insertowanie do tabeli
     {
-     $sql= mysqli_query("INSERT INTO opinie(hotel,publish_date,rev_count,rating,tags) VALUES ('".$row["hotel"]."', '".$row["publish_date"]."', '".$row["rev_count"]."', '".$row["rating"]."',, '".$row["tags"]."');");  // insert danych 
+	 $t = implode(" ",$row["tags"]);
+     $sql= mysqli_query("INSERT INTO opinie(hotel,publish_date,rev_count,rating,tags) VALUES ('".$row["hotel"]."', '".$row["publish_date"]."', '".$row["rev_count"]."', '".$row["rating"]."',, '".$t."');");  // insert danych 
     }
   }     
 
